@@ -114,8 +114,6 @@ services:
       - 9093:9093
     networks:
       - monitoring
-    depends_on:
-      - uncomplicated-alert-receiver
     labels:
       <<: *default-labels
     logging: *default-logging
@@ -128,17 +126,6 @@ services:
         - 9115:9115
     networks:
         - monitoring
-    labels:
-      <<: *default-labels
-    logging: *default-logging
-
-  uncomplicated-alert-receiver:
-    image: ghcr.io/jamesread/uncomplicated-alert-receiver
-    container_name: uncomplicated-alert-receiver
-    ports:
-      - 9094:8080
-    networks:
-      - monitoring
     labels:
       <<: *default-labels
     logging: *default-logging
